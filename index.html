@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>3UI</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="three.min.js"></script>
+        <script src="CSS3DRenderer.js"></script>
+        <script src="OrbitControls.js"></script>
+        <script src="Detector.js"></script>
+        <style>
+            x-3UI {}
+
+			html, body {
+				height: 100%;
+			}
+
+			body {
+				background-color: #111;
+				margin: 0;
+				font-family: "Times New Roman", Times, serif;
+                overflow: hidden;
+                    
+                color: white;
+			}
+
+            .story {
+                font-size: 24px;
+            }
+
+			.element {
+				width: 580px;
+				height: 740px;
+				box-shadow: 0px 0px 12px rgba(0,255,255,0.5);
+				border: 1px solid rgba(127,255,255,0.25);
+                background-color: rgba(0,127,127,0.5);
+				text-align: center;
+				cursor: default;
+			}
+
+			.element:hover {
+				box-shadow: 0px 0px 12px rgba(0,255,255,0.75);
+				border: 1px solid rgba(127,255,255,0.75);
+			}
+
+            .element .number {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                font-size: 24px;
+                color: rgba(127,255,255,0.75);
+            }
+
+            .element .symbol {
+                position: absolute;
+                top: 40px;
+                left: 0px;
+                right: 0px;
+                font-size: 90px;
+                font-weight: bold;
+                color: rgba(255,255,255,0.75);
+                text-shadow: 0 0 10px rgba(0,255,255,0.95);
+            }
+
+            .element .details {
+                position: absolute;
+                bottom: 15px;
+                left: 0px;
+                right: 0px;
+                font-size: 24px;
+                color: rgba(127,255,255,0.75);
+            }
+		</style>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <x-3UI pos='0,400,0' rot='0,0,0'>
+            <div class='element'>
+                <div class='number'></div>
+                <div class='symbol'>A Very Old Man with Enormous Wings</div>
+                <div class='details'>by Gabriel Garcia Marquez<br>Translated by Gregory Rabassa</div>
+            </div>
+        </x-3UI>
+        <x-3UI pos='0,-400,0' rot='0,0,0'>
+            <div class='story'>
+<p><span>On the third day of rain they had killed so many crabs inside
+the house that Pelayo had to cross his drenched courtyard and throw them into
+the sea, because the newborn child had a temperature all night and they thought
+it was due to the stench. The world had been sad since Tuesday. Sea and sky were a single ash-gray thing and the sands of the beach,
+which on March nights glimmered like powdered light, had become a stew of mud
+and rotten shellfish. The light was so weak at noon that when Pelayo was coming
+back to the house after throwing away the crabs, it was hard for him to see
+what it was that was moving and groaning in the rear of the courtyard. He had
+to go very close to see that it was an old man, a very old man, lying face down
+in the mud, who, in spite of his tremendous efforts, couldn’t get up, impeded by his enormous wings.<br>
+<br>
+Frightened by that nightmare, Pelayo ran to get Elisenda, his wife, who was
+putting compresses on the sick child, and he took her to the rear of the
+courtyard. They both looked at the fallen body with a mute stupor. He was
+dressed like a ragpicker. There were only a few faded hairs left on his bald
+skull and very few teeth in his mouth, and his pitiful condition of a drenched
+great-grandfather took away any sense of grandeur he might have had. His huge
+buzzard wings, dirty and half-plucked, were forever entangled in the mud. They
+looked at him so long and so closely that Pelayo and Elisenda very soon
+overcame their surprise and in the end found him familiar. Then they dared
+speak to him, and he answered in an incomprehensible dialect with a strong
+sailor’s voice. That was how they skipped over the inconvenience of the wings
+and quite intelligently concluded that he was a lonely castaway from some
+foreign ship wrecked by the storm. And yet, they called in a neighbor woman who
+knew everything about life and death to see him, and all she needed was one
+look to show them their mistake.<br>
+<br>
+“He’s an angel,” she told them. “He must have been coming for the child, but
+the poor fellow is so old that the rain knocked him down.”<br>
+<br>
+On the following day everyone knew that a flesh-and-blood angel was held
+captive in Pelayo’s house. Against the judgment of the wise neighbor woman, for
+whom angels in those times were the fugitive survivors of a celestial
+conspiracy, they did not have the heart to club him to death. Pelayo watched
+over him all afternoon from the kitchen, armed with his bailiff’s club, and
+before going to bed he dragged him out of the mud and locked him up with the
+hens in the wire chicken coop. In the middle of the night, when the rain
+stopped, Pelayo and Elisenda were still killing crabs. A short time afterward
+the child woke up without a fever and with a desire to eat. Then they felt
+magnanimous and decided to put the angel on a raft with fresh water and
+provisions for three days and leave him to his fate on the high seas. But when
+they went out into the courtyard with the first light of dawn, they found the
+whole neighborhood in front of the chicken coop having fun with the angel,
+without the slightest reverence, tossing him things to eat through the openings
+in the wire as if he weren’t a supernatural creature but a circus animal.<br>
+<br>
+Father Gonzaga arrived before seven o’clock, alarmed at the
+strange news. By that time onlookers less frivolous than those at dawn had
+already arrived and they were making all kinds of conjectures concerning the
+captive’s future. The simplest among them thought that he should be named mayor
+of the world. Others of sterner mind felt that he should be promoted to the
+rank of five-star general in order to win all wars. Some visionaries hoped that
+he could be put to stud in order to implant the earth a race of winged wise men
+who could take charge of the universe. But Father Gonzaga, before becoming a
+priest, had been a robust woodcutter. Standing by the wire, he reviewed his
+catechism in an instant and asked them to open the door so that he could take a
+close look at that pitiful man who looked more like a huge decrepit hen among
+the fascinated chickens. He was lying in the corner drying his open wings in
+the sunlight among the fruit peels and breakfast leftovers that the early
+risers had thrown him. Alien to the impertinences of the world, he only lifted
+his antiquarian eyes and murmured something in his dialect when Father Gonzaga
+went into the chicken coop and said good morning to him in Latin. The parish
+priest had his first suspicion of an imposter when he saw that he did not
+understand the language of God or know how to greet His ministers. Then he
+noticed that seen close up he was much too human: he had an unbearable smell of
+the outdoors, the back side of his wings was strewn with parasites and his main
+feathers had been mistreated by terrestrial winds, and nothing about him
+measured up to the proud dignity of angels. Then he came out of the chicken
+coop and in a brief sermon warned the curious against the risks of being
+ingenuous. He reminded them that the devil had the bad habit of making use of
+carnival tricks in order to confuse the unwary. He argued that if wings were
+not the essential element in determining the different between a hawk and an
+airplane, they were even less so in the recognition of angels. Nevertheless, he
+promised to write a letter to his bishop so that the latter would write his
+primate so that the latter would write to the Supreme Pontiff in order to get
+the final verdict from the highest courts.<br>
+<br>
+His prudence fell on sterile hearts. The news of the captive angel spread with
+such rapidity that after a few hours the courtyard had the bustle of a
+marketplace and they had to call in troops with fixed bayonets to disperse the
+mob that was about to knock the house down. Elisenda, her spine all twisted from
+sweeping up so much marketplace trash, then got the idea of fencing in the yard
+and charging five cents admission to see the angel.<br>
+<br>
+The curious came from far away. A traveling carnival arrived with a flying
+acrobat who buzzed over the crowd several times, but no one paid any attention
+to him because his wings were not those of an angel but, rather, those of a
+sidereal bat. The most unfortunate invalids on earth came in search of health:
+a poor woman who since childhood has been counting her heartbeats and had run
+out of numbers; a Portuguese man who couldn’t sleep because the noise of the
+stars disturbed him; a sleepwalker who got up at night to undo the things he
+had done while awake; and many others with less serious ailments. In the midst
+of that shipwreck disorder that made the earth tremble, Pelayo and Elisenda
+were happy with fatigue, for in less than a week they had crammed their rooms
+with money and the line of pilgrims waiting their turn to enter still reached
+beyond the horizon.<br>
+<br>
+The angel was the only one who took no part in his own act. He spent his time
+trying to get comfortable in his borrowed nest, befuddled by the hellish heat
+of the oil lamps and sacramental candles that had been placed along the wire.
+At first they tried to make him eat some mothballs, which, according to the
+wisdom of the wise neighbor woman, were the food prescribed for angels. But he
+turned them down, just as he turned down the papal lunches that the pentinents
+brought him, and they never found out whether it was because he was an angel or
+because he was an old man that in the end ate nothing but eggplant mush. His
+only supernatural virtue seemed to be patience. Especially during the first
+days, when the hens pecked at him, searching for the stellar parasites that proliferated
+in his wings, and the cripples pulled out feathers to touch their defective
+parts with, and even the most merciful threw stones at him, trying to get him
+to rise so they could see him standing. The only time they succeeded in
+arousing him was when they burned his side with an iron for branding steers,
+for he had been motionless for so many hours that they thought he was dead. He
+awoke with a start, ranting in his hermetic language and with tears in his
+eyes, and he flapped his wings a couple of times, which brought on a whirlwind
+of chicken dung and lunar dust and a gale of panic that did not seem to be of
+this world. Although many thought that his reaction had not been one of rage
+but of pain, from then on they were careful not to annoy him, because the
+majority understood that his passivity was not that of a hero taking his ease
+but that of a cataclysm in repose.<br>
+<br>
+Father Gonzaga held back the crowd’s frivolity with formulas of maidservant
+inspiration while awaiting the arrival of a final judgment on the nature of the
+captive. But the mail from Rome showed no sense
+of urgency. They spent their time finding out if the prisoner had a navel, if
+his dialect had any connection with Aramaic, how many times he could fit on the
+head of a pin, or whether he wasn’t just a Norwegian with wings. Those meager
+letters might have come and gone until the end of time if a providential event
+had not put and end to the priest’s tribulations.<br>
+<br>
+It so happened that during those days, among so many other carnival attractions,
+there arrived in the town the traveling show of the woman who had been changed
+into a spider for having disobeyed her parents. The admission to see her was
+not only less than the admission to see the angel, but people were permitted to
+ask her all manner of questions about her absurd state and to examine her up
+and down so that no one would ever doubt the truth of her horror. She was a
+frightful tarantula the size of a ram and with the head of a sad maiden. What
+was most heartrending, however, was not her outlandish shape but the sincere
+affliction with which she recounted the details of her misfortune. While still
+practically a child she had sneaked out of her parents’ house to go to a dance,
+and while she was coming back through the woods after having danced all night
+without permission, a fearful thunderclap rent the sky in two and through the
+crack came the lightning bolt of brimstone that
+changed her into a spider. Her only nourishment came from the meatballs that
+charitable souls chose to toss into her mouth. A spectacle like that, full of
+so much human truth and with such a fearful lesson, was bound to defeat without
+even trying that of a haughty angel who scarcely deigned to look at mortals.
+Besides, the few miracles attributed to the angel showed a certain mental
+disorder, like the blind man who didn’t recover his sight but grew three new
+teeth, or the paralytic who didn’t get to walk but almost won the lottery, and
+the leper whose sores sprouted sunflowers. Those consolation miracles, which
+were more like mocking fun, had already ruined the angel’s reputation when the
+woman who had been changed into a spider finally crushed him completely. That
+was how Father Gonzaga was cured forever of his insomnia and Pelayo’s courtyard
+went back to being as empty as during the time it had rained for three days and
+crabs walked through the bedrooms.<br>
+<br>
+The owners of the house had no reason to lament. With the money they saved they
+built a two-story mansion with balconies and gardens and high netting so that
+crabs wouldn’t get in during the winter, and with iron
+bars on the windows so that angels wouldn’t get in. Pelayo also set up a rabbit
+warren close to town and gave up his job as a bailiff for good, and Elisenda
+bought some satin pumps with high heels and many dresses of iridescent silk,
+the kind worn on Sunday by the most desirable women in those times. The chicken
+coop was the only thing that didn’t receive any attention. If they washed it
+down with creolin and burned tears of myrrh inside it every so often, it was
+not in homage to the angel but to drive away the dungheap stench that still
+hung everywhere like a ghost and was turning the new house into an old one. At
+first, when the child learned to walk, they were careful that he not get too close to the chicken coop. But then they began to
+lose their fears and got used to the smell, and before they child got his
+second teeth he’d gone inside the chicken coop to play, where the wires were
+falling apart. The angel was no less standoffish with him than with the other
+mortals, but he tolerated the most ingenious infamies with the patience of a
+dog who had no illusions. They both came down with the
+chicken pox at the same time. The doctor who took care of the child couldn’t
+resist the temptation to listen to the angel’s heart, and he found so much
+whistling in the heart and so many sounds in his kidneys that it seemed
+impossible for him to be alive. What surprised him most, however, was the logic
+of his wings. They seemed so natural on that completely human organism that he
+couldn’t understand why other men didn’t have them too.<br>
+<br>
+When the child began school it had been some time since the sun and rain had
+caused the collapse of the chicken coop. The angel went dragging himself about
+here and there like a stray dying man. They would drive him out of the bedroom
+with a broom and a moment later find him in the
+kitchen. He seemed to be in so many places at the same time that they grew to
+think that he’d be duplicated, that he was reproducing himself all through the
+house, and the exasperated and unhinged Elisenda shouted that it was awful
+living in that hell full of angels. He could scarcely eat and his antiquarian
+eyes had also become so foggy that he went about bumping into posts. All he had
+left were the bare cannulae of his last feathers. Pelayo threw a blanket over
+him and extended him the charity of letting him sleep in the shed, and only
+then did they notice that he had a temperature at night, and was delirious with
+the tongue twisters of an old Norwegian. That was one
+of the few times they became alarmed, for they thought he was going to die and
+not even the wise neighbor woman had been able to tell them what to do with
+dead angels.<br>
+<br>
+And yet he not only survived his worst winter, but seemed improved with the
+first sunny days. He remained motionless for several days in the farthest
+corner of the courtyard, where no one would see him, and at the beginning of
+December some large, stiff feathers began to grow on his wings, the feathers of
+a scarecrow, which looked more like another misfortune of decreptitude. But he
+must have known the reason for those changes, for he was quite careful that no
+one should notice them, that no one should hear the
+sea chanteys that he sometimes sang under the stars. One morning Elisenda was
+cutting some bunches of onions for lunch when a wind that seemed to come from
+the high seas blew into the kitchen. Then she went to the window and caught the
+angel in his first attempts at flight. They were so clumsy that his fingernails
+opened a furrow in the vegetable patch and he was on the point of knocking the
+shed down with the ungainly flapping that slipped on the light and couldn’t get
+a grip on the air. But he did manage to gain altitude. Elisenda let out a sigh
+of relief, for herself and for him, when she watched him pass over the last
+houses, holding himself up in some way with the risky flapping of a senile
+vulture. She kept watching him even when she was through cutting the onions and
+she kept on watching until it was no longer possible for her to see him,
+because then he was no longer an annoyance in her life but an imaginary dot on
+the horizon of the sea.</span><span></span></p>
+            </div>
+        </x-3UI>
+        <script>
+            var element = document.createElement( 'div' );
+					element.className = 'element';
+					element.style.backgroundColor = 'rgba(0,127,127,0.5)';
+
+					var number = document.createElement( 'div' );
+					number.className = 'number';
+					number.textContent = 79;
+					element.appendChild( number );
+
+					var symbol = document.createElement( 'div' );
+					symbol.className = 'symbol';
+					symbol.textContent = 'Au';
+					element.appendChild( symbol );
+
+					var details = document.createElement( 'div' );
+					details.className = 'details';
+					details.innerHTML = 'Gold <br> Aurum ';
+					element.appendChild( details );
+
+                    var input = document.createElement( 'input' );
+                    input.setAttribute( 'type', 'text' );
+                    //element.appendChild( input );
+
+                    document.getElementsByClassName( 'element' )[0].addEventListener( 'click', function() {
+                        this.style.backgroundColor = 'rgba(0,' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ',0.5)';
+                    }  );
+
+            // global variables, referenced from render loop
+            var renderer;
+            var scene;
+            var camera;
+            var controls;
+
+            var initWidth;
+
+            var elements;
+            var objects;
+
+            init();
+
+            function init() {
+
+                scene = new THREE.Scene();
+                camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.1, 2000 );
+
+                // create a CSS3DRenderer
+                renderer = new THREE.CSS3DRenderer();
+                renderer.setSize( window.innerWidth, window.innerHeight );
+                renderer.domElement.style.position = 'absolute';
+                document.body.appendChild( renderer.domElement );
+
+                controls = new THREE.OrbitControls( camera, renderer.domElement );
+                controls.rotateSpeed = 0.05;
+                controls.enableDamping = true;
+				controls.dampingFactor = 0.06;
+                controls.enableZoom = false;
+
+                document.body.addEventListener( 'wheel', onMouseWheel, false );
+
+                initWidth = window.innerWidth;
+                objects = new THREE.Object3D();
+
+                // position and point the camera to the center of the scene
+                camera.position.x = 0;
+                camera.position.y = 0;
+                camera.position.z = 100;
+                var z = ( camera.aspect * Math.tan( camera.fov ) ) / ( 2 * initWidth );
+                console.log( z );
+                var te = 2 * Math.atan( ( initWidth / camera.aspect ) / ( 2 * z ) ) * ( 180 / Math.PI );
+                console.log( te );
+                camera.fov = 2 * Math.atan( ( initWidth / camera.aspect ) / ( 2 * 1600 ) ) * ( 180 / Math.PI ); // in degrees
+                //camera.lookAt( scene.position );
+
+                elements = makeElements();
+
+                for( var i = 0; i < elements.length; i++ ) {
+                    var element = document.createElement( 'div' );
+					    element.className = 'x-el3UI';
+                    for( var j = 0; j < elements[i].el.length; j++ ) {
+                        element.appendChild( elements[i].el[j] );
+                    }
+
+                    object = new THREE.CSS3DObject( element );
+
+                    object.position.z = elements[i].pos[2] - 1600;
+                    rotObject = new THREE.Object3D();
+                    object.position.y = elements[i].pos[1] - ( elements[i].height / 2 );
+
+                    rotObject.rotation.y = elements[i].rot[1];
+                    rotObject.add( object );
+                    objects.add( rotObject );
+                }
+
+                scene.add( objects );
+
+                window.addEventListener( 'resize', onWindowResize, false );
+
+                animate();
+            }
+
+
+            function makeElements() {
+                var elements = [];
+                var element;
+                var tags = document.getElementsByTagName( 'x-3UI' );
+                for( var i = 0; i < tags.length; i++ ) {
+                    element = { el: tags[i].children, pos: [], rot: [], height: 0 };
+                    element.pos = tags[i].getAttribute( 'pos' ).split(',').map(Number);
+                    element.rot = tags[i].getAttribute( 'rot' ).split(',').map(Number);
+
+                    //getHeight
+                    for( var j = 0; j < tags[i].children.length; j++ ) {
+                        element.height += tags[i].children[j].clientHeight;
+                    }
+                    tags[i].style.display = 'none';
+
+                    elements.push( element );
+                }
+                return elements;
+            }
+
+            function onMouseWheel( e ) {
+                objects.position.y += e.deltaY;
+            }
+
+            function onWindowResize() {
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+                camera.fov = 2 * Math.atan( ( initWidth / camera.aspect ) / ( 2 * 1600 ) ) * ( 180 / Math.PI ); // in degrees
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+				render();
+			}
+
+			function animate() {
+				requestAnimationFrame( animate );
+				//TWEEN.update();
+                render();
+			}
+
+			function render() {
+				renderer.render( scene, camera )
+                
+                controls.update();
+                //objects.children[0].rotation.y += 0.005;
+                //for( var i = 0; i < objects.children.length; i++ ) {
+                    //objects[i].lookAt( camera );
+                //}
+			}
+            
+        </script>
+    </body>
+</html>
