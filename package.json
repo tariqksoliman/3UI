@@ -1,0 +1,24 @@
+{
+  "name": "3ui",
+  "version": "1.0.0",
+  "description": "HTML tags to create elements in 3D space.",
+  "main": "3ui.js",
+  "scripts": {
+    "dev": "./node_modules/.bin/webpack-dev-server --content-base ./ --inline --hot",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tariqksoliman/3UI.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tariqksoliman/3UI/issues"
+  },
+  "homepage": "https://github.com/tariqksoliman/3UI#readme",
+  "dependencies": {
+    "webpack": "^2.5.1",
+    "webpack-dev-server": "^2.4.5"
+  }
+}
