@@ -70,9 +70,9 @@ function init() {
     camera.position.y = 0;
     camera.position.z = 100;
     var z = ( camera.aspect * Math.tan( camera.fov ) ) / ( 2 * initWidth );
-    console.log( z );
+    //console.log( z );
     var te = 2 * Math.atan( ( initWidth / camera.aspect ) / ( 2 * z ) ) * ( 180 / Math.PI );
-    console.log( te );
+    //console.log( te );
     camera.fov = 2 * Math.atan( ( initWidth / camera.aspect ) / ( 2 * 1600 ) ) * ( 180 / Math.PI ); // in degrees
     //camera.lookAt( scene.position );
 
