@@ -4,7 +4,8 @@
   "description": "HTML tags to create elements in 3D space.",
   "main": "3ui.js",
   "scripts": {
-    "dev": "./node_modules/.bin/webpack-dev-server --content-base ./ --inline --hot",
+    "dev": "set NODE_ENV=development && webpack-dev-server --open --inline --hot",
+    "build": "set NODE_ENV=production && webpack --progress --hide-module",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

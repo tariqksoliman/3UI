@@ -46,7 +46,7 @@ init();
 function init() {
 
     scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.1, 2000 );
+    camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 10000 );
 
     // create a CSS3DRenderer
     renderer = new THREE.CSS3DRenderer();
@@ -69,10 +69,10 @@ function init() {
     camera.position.x = 0;
     camera.position.y = 0;
     camera.position.z = 100;
-    var z = ( camera.aspect * Math.tan( camera.fov ) ) / ( 2 * initWidth );
-    console.log( z );
-    var te = 2 * Math.atan( ( initWidth / camera.aspect ) / ( 2 * z ) ) * ( 180 / Math.PI );
-    console.log( te );
+    //var z = ( camera.aspect * Math.tan( camera.fov ) ) / ( 2 * initWidth );
+    //console.log( z );
+    //var te = 2 * Math.atan( ( initWidth / camera.aspect ) / ( 2 * z ) ) * ( 180 / Math.PI );
+    //console.log( te );
     camera.fov = 2 * Math.atan( ( initWidth / camera.aspect ) / ( 2 * 1600 ) ) * ( 180 / Math.PI ); // in degrees
     //camera.lookAt( scene.position );
 
@@ -88,10 +88,19 @@ function init() {
         object = new THREE.CSS3DObject( element );
 
         object.position.z = elements[i].pos[2] - 1600;
-        rotObject = new THREE.Object3D();
         object.position.y = elements[i].pos[1] - ( elements[i].height / 2 );
+        object.position.x = elements[i].pos[0];
 
-        rotObject.rotation.y = elements[i].rot[1];
+        object.rotation.y = elements[i].rot[1] * ( Math.PI / 180 );
+        object.rotation.x = elements[i].rot[0] * ( Math.PI / 180 );
+        object.rotation.z = elements[i].rot[2] * ( Math.PI / 180 );
+        
+        rotObject = new THREE.Object3D();
+
+        rotObject.rotation.y = elements[i].rotp[1] * ( Math.PI / 180 );
+        rotObject.rotation.x = elements[i].rotp[0] * ( Math.PI / 180 );
+        rotObject.rotation.z = elements[i].rotp[2] * ( Math.PI / 180 );
+
         rotObject.add( object );
         objects.add( rotObject );
     }
@@ -107,11 +116,15 @@ function init() {
 function makeElements() {
     var elements = [];
     var element;
-    var tags = document.getElementsByTagName( 'x-3UI' );
+    var tags = document.getElementsByTagName( 'x3UI-div' );
     for( var i = 0; i < tags.length; i++ ) {
         element = { el: tags[i].children, pos: [], rot: [], height: 0 };
-        element.pos = tags[i].getAttribute( 'pos' ).split(',').map(Number);
-        element.rot = tags[i].getAttribute( 'rot' ).split(',').map(Number);
+        element.pos = tags[i].getAttribute( 'pos' );
+        element.rot = tags[i].getAttribute( 'rot' );
+        element.rotp = tags[i].getAttribute( 'rotp' );
+        element.pos = element.pos ? element.pos.split(',').map(Number) : [0,0,0];
+        element.rot = element.rot ? element.rot.split(',').map(Number) : [0,0,0];
+        element.rotp = element.rotp ? element.rotp.split(',').map(Number) : [0,0,0];
 
         //getHeight
         for( var j = 0; j < tags[i].children.length; j++ ) {

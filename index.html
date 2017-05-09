@@ -77,15 +77,16 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <x-3UI pos='0,400,0' rot='0,0,0'>
-            <div class='element'>
-                <div class='number'></div>
-                <div class='symbol'>A Very Old Man with Enormous Wings</div>
-                <div class='details'>by Gabriel Garcia Marquez<br>Translated by Gregory Rabassa</div>
-            </div>
-        </x-3UI>
-        <x-3UI pos='0,-400,0' rot='0,0,0'>
-            <div class='story'>
+        <x3UI-page>
+            <x3UI-div pos='0,400,0' rot='0,0,0'>
+                <div class='element'>
+                    <div class='number'></div>
+                    <div class='symbol'>A Very Old Man with Enormous Wings</div>
+                    <div class='details'>by Gabriel Garcia Marquez<br>Translated by Gregory Rabassa</div>
+                </div>
+            </x3UI-div>
+            <x3UI-div pos='0,-400,0' rot='0,0,0' rotp='0,0,0'>
+                <div class='story'>
 <p><span>On the third day of rain they had killed so many crabs inside
 the house that Pelayo had to cross his drenched courtyard and throw them into
 the sea, because the newborn child had a temperature all night and they thought
@@ -303,8 +304,9 @@ vulture. She kept watching him even when she was through cutting the onions and
 she kept on watching until it was no longer possible for her to see him,
 because then he was no longer an annoyance in her life but an imaginary dot on
 the horizon of the sea.</span><span></span></p>
-            </div>
-        </x-3UI>
+                </div>
+            </x3UI-div>
+        </x3UI-page>
         <script src='3ui.min.js'></script>
     </body>
 </html>
