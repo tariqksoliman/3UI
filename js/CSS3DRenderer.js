@@ -51,11 +51,13 @@ THREE.CSS3DRenderer = function () {
 	};
 
 	var domElement = document.createElement( 'div' );
+	domElement.className = 'css3drenderer';
 	domElement.style.overflow = 'hidden';
 
 	this.domElement = domElement;
 
 	var cameraElement = document.createElement( 'div' );
+	cameraElement.className = 'css3drenderer';
 
 	cameraElement.style.WebkitTransformStyle = 'preserve-3d';
 	cameraElement.style.MozTransformStyle = 'preserve-3d';

@@ -39,6 +39,8 @@ var controls;
 var initWidth;
 
 var elements;
+var pages;
+
 var objects;
 
 init();
@@ -76,65 +78,101 @@ function init() {
     camera.fov = 2 * Math.atan( ( initWidth / camera.aspect ) / ( 2 * 1600 ) ) * ( 180 / Math.PI ); // in degrees
     //camera.lookAt( scene.position );
 
-    elements = makeElements();
-
-    for( var i = 0; i < elements.length; i++ ) {
-        var element = document.createElement( 'div' );
-            element.className = 'x-el3UI';
-        for( var j = 0; j < elements[i].el.length; j++ ) {
-            element.appendChild( elements[i].el[j] );
-        }
-
-        object = new THREE.CSS3DObject( element );
-
-        object.position.z = elements[i].pos[2] - 1600;
-        object.position.y = elements[i].pos[1] - ( elements[i].height / 2 );
-        object.position.x = elements[i].pos[0];
-
-        object.rotation.y = elements[i].rot[1] * ( Math.PI / 180 );
-        object.rotation.x = elements[i].rot[0] * ( Math.PI / 180 );
-        object.rotation.z = elements[i].rot[2] * ( Math.PI / 180 );
-        
-        rotObject = new THREE.Object3D();
-
-        rotObject.rotation.y = elements[i].rotp[1] * ( Math.PI / 180 );
-        rotObject.rotation.x = elements[i].rotp[0] * ( Math.PI / 180 );
-        rotObject.rotation.z = elements[i].rotp[2] * ( Math.PI / 180 );
-
-        rotObject.add( object );
-        objects.add( rotObject );
-    }
-
-    scene.add( objects );
+    scene.add( makePages() );
 
     window.addEventListener( 'resize', onWindowResize, false );
 
     animate();
 }
 
+function makePages() {
+    
+    var objects = new THREE.Object3D();
+    var object;
 
-function makeElements() {
-    var elements = [];
-    var element;
-    var tags = document.getElementsByTagName( 'x3UI-div' );
-    for( var i = 0; i < tags.length; i++ ) {
-        element = { el: tags[i].children, pos: [], rot: [], height: 0 };
-        element.pos = tags[i].getAttribute( 'pos' );
-        element.rot = tags[i].getAttribute( 'rot' );
-        element.rotp = tags[i].getAttribute( 'rotp' );
-        element.pos = element.pos ? element.pos.split(',').map(Number) : [0,0,0];
-        element.rot = element.rot ? element.rot.split(',').map(Number) : [0,0,0];
-        element.rotp = element.rotp ? element.rotp.split(',').map(Number) : [0,0,0];
+    var rotObject;
+    var lastRotObject = objects;
+    var lastRotCandidate;
+    
+    var lastPage;
 
-        //getHeight
-        for( var j = 0; j < tags[i].children.length; j++ ) {
-            element.height += tags[i].children[j].clientHeight;
+    apply3UI( document.body );
+
+    function apply3UI( parent ) {
+        if( !parent.className.includes( 'css3drenderer' ) ) {
+            if( parent.x3UI ) { lastRotObject = parent.x3UI;
+                console.log( parent.tagName );
+            }
+            for( var i = 0; i < parent.children.length; i++ ) {
+                switch( parent.children[i].nodeName ) {
+                    case 'X3UI-PAGE':
+                            parent.children[i].x3UI = setObject( parent.children[i], true );
+                        break;
+                    case 'X3UI-DIV':
+                            parent.children[i].x3UI = setObject( parent.children[i], false );
+                        break;
+                }
+                apply3UI( parent.children[i] );
+            }
         }
-        tags[i].style.display = 'none';
-
-        elements.push( element );
     }
-    return elements;
+
+    function setObject( element, isPage ) {
+        //Make the base element
+        var page = document.createElement( 'div' );
+        page.className = element.tagName;
+        //Add all the children
+        for( var i = 0; i < element.children.length; i++ ) {
+            page.appendChild( element.children[i].cloneNode(true) );
+        }
+        //Remove all x3UI children
+        var subX3UI = page.getElementsByTagName( 'x3UI-div' );
+        while( subX3UI[0] ) subX3UI[0].parentNode.removeChild( subX3UI[0] );
+
+        var pos = element.getAttribute( 'pos' );
+        var rot = element.getAttribute( 'rot' );
+        var rotp = element.getAttribute( 'rotp' );
+        pos = pos ? pos.split(',').map(Number) : [0,0,0];
+        rot = rot ? rot.split(',').map(Number) : [0,0,0];
+        rotp = rotp ? rotp.split(',').map(Number) : [0,0,0];
+        var height = 0;
+        for( var i = 0; i < element.children.length; i++ ) {
+            height += element.children[i].clientHeight;
+        }
+
+        object = new THREE.CSS3DObject( page );
+
+        object.position.z = pos[2] - 1600;
+        object.position.y = pos[1] - ( height / 2 );
+        object.position.x = pos[0];
+
+        object.rotation.y = rot[1] * ( Math.PI / 180 );
+        object.rotation.x = rot[0] * ( Math.PI / 180 );
+        object.rotation.z = rot[2] * ( Math.PI / 180 );
+        
+        rotObject = new THREE.Object3D();
+
+        rotObject.rotation.y = rotp[1] * ( Math.PI / 180 );
+        rotObject.rotation.x = rotp[0] * ( Math.PI / 180 );
+        rotObject.rotation.z = rotp[2] * ( Math.PI / 180 );
+
+        rotObject.add( object );
+        if( isPage ) {
+            objects.add( rotObject );
+        }
+        else {
+            lastRotObject.add( rotObject );
+        }
+        return rotObject;
+    }
+
+    //set all X3UI-page to no display
+    var X3UIpages = document.getElementsByTagName( 'x3UI-page' );
+    for( var i = 0; i < X3UIpages.length; i++ ) {
+        X3UIpages[i].style.display = 'none';
+    }
+
+    return objects;
 }
 
 function onMouseWheel( e ) {
